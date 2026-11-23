@@ -1,4 +1,7 @@
 -- Base de datos: agenda_personal
+-- Versión actualizada: agrega índices de apoyo para consultas por usuario,
+-- nombre, correo y ciudad. No cambia los campos ni elimina información.
+
 CREATE DATABASE IF NOT EXISTS agenda_personal
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
@@ -23,5 +26,14 @@ CREATE TABLE IF NOT EXISTS contactos (
     CONSTRAINT fk_contactos_usuario
       FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
       ON DELETE CASCADE ON UPDATE CASCADE,
-    INDEX idx_contactos_usuario (id_usuario)
+    INDEX idx_contactos_usuario (id_usuario),
+    INDEX idx_contactos_usuario_nombre (id_usuario, nombre),
+    INDEX idx_contactos_usuario_correo (id_usuario, correo),
+    INDEX idx_contactos_usuario_ciudad (id_usuario, ciudad)
 ) ENGINE=InnoDB;
+
+-- IMPORTANTE:
+-- Este archivo crea las tablas para una instalación nueva.
+-- Si la base agenda_personal ya existe, NO la elimines ni vuelvas a importarla
+-- sobre los datos actuales. Para conservar los contactos existentes, utiliza
+-- el archivo actualizar_indices_busqueda.sql una sola vez.

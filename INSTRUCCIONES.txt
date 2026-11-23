@@ -1,0 +1,29 @@
+ACTUALIZACIÓN DEL REPOSITORIO agenda-personal-contactos
+
+ARCHIVOS QUE DEBES REEMPLAZAR EN TU PROYECTO:
+- dashboard.php
+- includes/header.php
+- includes/functions.php
+- database.sql
+- README.md
+
+ARCHIVO NUEVO:
+- assets/mejoras.css
+
+SCRIPT OPCIONAL PARA UNA BASE DE DATOS YA EXISTENTE:
+- actualizar_indices_busqueda.sql
+
+PASOS:
+1. Descarga primero tu repositorio de GitHub como ZIP y extrae el proyecto completo.
+2. Haz una copia de seguridad de esa carpeta.
+3. Extrae este paquete de actualización sobre la carpeta del proyecto, manteniendo las mismas rutas y permitiendo reemplazar los archivos indicados.
+4. Si conservas una base agenda_personal con datos, NO importes database.sql ni borres tablas. Puedes ejecutar actualizar_indices_busqueda.sql una sola vez desde phpMyAdmin para añadir índices. Los índices son una optimización; la búsqueda funciona sin ellos.
+5. Abre dashboard.php desde la aplicación, inicia sesión y prueba la búsqueda y el ordenamiento.
+6. Para GitHub, sube los archivos modificados y el nuevo archivo assets/mejoras.css. Incluye también README.md, database.sql y capturas reales.
+
+COMANDOS GIT (desde la carpeta local del repositorio):
+    git add dashboard.php includes/header.php includes/functions.php assets/mejoras.css database.sql README.md actualizar_indices_busqueda.sql capturas/
+    git commit -m "Agregar búsqueda y ordenamiento de contactos"
+    git push origin main
+
+Si todavía no tienes una copia local del repositorio, descarga el ZIP desde el botón Code > Download ZIP de GitHub, extrae los archivos y luego aplica esta actualización.
